@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#"
+     xml:base="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#hasSecurityMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#hasSecurityMeasure">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança)"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Impact -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Impact">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Severity_Level -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Severity_Level">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Type">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backdoor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backdoor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Bind_Shell -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Bind_Shell">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Botnet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Botnet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Detection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Detection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#DoS_Attack -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#DoS_Attack">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Edudaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Edudaction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Keylogger -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Keylogger">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Spyware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Phishing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Phishing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Ransomware -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Ransomware">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Reporting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Reporting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Reverse_shell -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Reverse_shell">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Social_Engineering -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Social_Engineering">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Spyware -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Spyware">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#VNC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#VNC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Worm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Worm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#APT(Advanced_Persistent_Threat) -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#APT(Advanced_Persistent_Threat)">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas) -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Cyber_Threats(Ameaças_Cibernéticas)"/>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança) -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Security_Measure_(Medida_de_Segurança)"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backup_Regular_de_Dados -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backup_Regular_de_Dados">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Conscientização_do_Usuário_sobre_Phishing -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Conscientização_do_Usuário_sobre_Phishing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Edudaction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#DDoS_Attack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#DDoS_Attack">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#DoS_Attack"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Monitoramento_de_Tráfego_de_Rede"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Sistemas_de_Detecção_e_Prevenção_de_Intrusão_(IDS/IPS)"/>
+        <Impact rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Sobrecarrega os servidores, impedindo o acesso legítimo</Impact>
+        <Name rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Ataque de Flood SYN</Name>
+        <Severity_Level rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Alto</Severity_Level>
+        <Type rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">DoS Attack</Type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Educação_para_Funcionários_sobre_Engenharia_Social -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Educação_para_Funcionários_sobre_Engenharia_Social">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Edudaction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Filtros_de_E-mail_Avançados -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Filtros_de_E-mail_Avançados">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Detection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Malware"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Backup_Regular_de_Dados"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Software_Antivírus"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Treinamento_de_Conscientização_em_Segurança"/>
+        <Impact rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Criptografia de arquivos e extorsão</Impact>
+        <Name rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Ransomware</Name>
+        <Severity_Level rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Alto</Severity_Level>
+        <Type rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Malware</Type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Monitoramento_de_Tráfego_de_Rede -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Monitoramento_de_Tráfego_de_Rede">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Detection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Phishing -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Phishing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Phishing"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Conscientização_do_Usuário_sobre_Phishing"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Filtros_de_E-mail_Avançados"/>
+        <Impact rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Roubo de credenciais</Impact>
+        <Name rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Spear Phishing</Name>
+        <Severity_Level rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Moderado</Severity_Level>
+        <Type rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Phishing</Type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Políticas_de_Segurança_para_Confirmação_de_Identidade_por_Telefone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Políticas_de_Segurança_para_Confirmação_de_Identidade_por_Telefone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Social_Engineering -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Social_Engineering">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Social_Engineering"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Educação_para_Funcionários_sobre_Engenharia_Social"/>
+        <hasSecurityMeasure rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Políticas_de_Segurança_para_Confirmação_de_Identidade_por_Telefone"/>
+        <Impact rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Enganar as vítimas por meio de chamadas telefônicas para obter informações confidenciais</Impact>
+        <Name rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Phishing por Telefone</Name>
+        <Severity_Level rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Moderado</Severity_Level>
+        <Type rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Social Engineering</Type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Software_Antivírus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Software_Antivírus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Treinamento_de_Conscientização_em_Segurança -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Treinamento_de_Conscientização_em_Segurança">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Edudaction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Sistemas_de_Detecção_e_Prevenção_de_Intrusão_(IDS/IPS) -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Sistemas_de_Detecção_e_Prevenção_de_Intrusão_(IDS/IPS)">
+        <rdf:type rdf:resource="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Detection"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Edudaction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/cyber_threat#Prevention"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
