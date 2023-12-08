@@ -32,4 +32,4 @@ global _start
     ;Finalizar programa
     mov eax, SYS_EXIT
     mov ebx, RETURN_VALLUE
-    SYS_CALL
+    int SYS_CALL
