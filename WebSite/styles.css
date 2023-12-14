@@ -1,0 +1,101 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos do cabeçalho */
+header {
+    background-image: url('backgroudMenu.gif');
+    color: #fff;
+    padding: 20px 0;
+}
+
+#copyright {
+    background-color: #000000;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos da seção Home */
+#home {
+    background-color: #020141;
+    text-align: center;
+    color: #fff;
+    padding: 100px 0;
+}
+
+
+#services {
+    background-color: #202020;
+    text-decoration-color: #fff;
+    color: #fff;
+    padding: 100px 0;
+    
+}
+
+#about {
+    background-color: #202020;
+    text-decoration-color: #fff;
+    color: #fff;
+    padding: 100px 0;
+    
+}
+
+#contact {
+    background-color: #202020;
+    text-decoration-color: #fff;
+    color: #fff;
+    padding: 100px 0;
+    
+}
+
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+.logo img {
+    max-width: 250px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+}
+
