@@ -56,12 +56,12 @@ _start:
 
     ; Calculo do produto_num1_num2
     mov eax, [number1]
-    imul dword [number2]
+    mul dword [number2]
     mov [produto_num1_num2], eax
 
     ; Calculo do resultado
     mov eax, [produto_num1_num2]
-    imul dword [number3]
+    mul dword [number3]
     mov [resultado], eax
 
     ; Print do resultado
