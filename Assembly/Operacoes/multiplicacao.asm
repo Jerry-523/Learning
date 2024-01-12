@@ -1,75 +1,84 @@
 section .data
-    prompt1 db 'Insira o primeiro número: ', 0xA, 0
-    prompt2 db 'Insira o segundo número: ', 0xA, 0
-    result_msg db 'Resultado da multiplicação: ', 0xA, 0
+    prompt1 db 'Insira o primeiro numero: ', 0
+    prompt2 db 'Insira o segundo numero: ', 0
+    prompt3 db 'Insira o terceiro numero: ', 0
+    result_msg db 'O resultado eh: %d', 10, 0
 
-    ; Syscalls e file descriptors
-    SYS_WRITE equ 1
-    SYS_READ equ 0
-    SYS_EXIT equ 60
-    SYS_CALL equ 80
-    STDOUT equ 1
-    STDIN equ 0
-    RETURN_VALUE equ 0
-
-    num1 dd 0
-    num2 dd 0
-    result dd 0
+section .bss
+    number1 resd 1
+    number2 resd 1
+    number3 resd 1
+    produto_num1_num2 resd 1
+    resultado resd 1
 
 section .text
     global _start
 
 _start:
-    ; Prompt e input para o primeiro número
-    mov eax, SYS_WRITE
-    mov ebx, STDOUT
+    ; Input do primeiro numero
+    mov eax, 4
+    mov ebx, 1
     mov ecx, prompt1
-    mov edx, 27
-    int SYS_CALL
+    mov edx, 25
+    int 0x80
 
-    mov eax, SYS_READ
-    mov ebx, STDIN
-    mov ecx, num1
+    mov eax, 3
+    mov ebx, 0
+    lea ecx, [number1]
     mov edx, 4
-    int SYS_CALL
+    int 0x80
 
-    ; Prompt e input para o segundo número
-    mov eax, SYS_WRITE
-    mov ebx, STDOUT
+    ; Input do segundo numero
+    mov eax, 4
+    mov ebx, 1
     mov ecx, prompt2
-    mov edx, 28
-    int SYS_CALL
+    mov edx, 25
+    int 0x80
 
-    mov eax, SYS_READ
-    mov ebx, STDIN
-    mov ecx, num2
+    mov eax, 3
+    mov ebx, 0
+    lea ecx, [number2]
     mov edx, 4
-    int SYS_CALL
+    int 0x80
 
-    ; Converte os números de string para inteiro
-    mov eax, [num1]
-    mov ebx, [num2]
-    
-    ; Multiplicação dos números
-    imul eax, ebx
+    ; Input do terceiro numero
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, prompt3
+    mov edx, 26
+    int 0x80
 
-    ; Salva o resultado
-    mov [result], eax
+    mov eax, 3
+    mov ebx, 0
+    lea ecx, [number3]
+    mov edx, 4
+    int 0x80
 
-    ; Prompt e impressão do resultado final
-    mov eax, SYS_WRITE
-    mov ebx, STDOUT
+    ; Calculo do produto_num1_num2
+    mov eax, [number1]
+    imul dword [number2]
+    mov [produto_num1_num2], eax
+
+    ; Calculo do resultado
+    mov eax, [produto_num1_num2]
+    imul dword [number3]
+    mov [resultado], eax
+
+    ; Print do resultado
+    mov eax, 4
+    mov ebx, 1
     mov ecx, result_msg
-    mov edx, 29
-    int SYS_CALL
+    mov edx, 19
+    int 0x80
 
-    mov eax, SYS_WRITE
-    mov ebx, STDOUT
-    mov ecx, result
-    mov edx, 11
-    int SYS_CALL
+    ; Print do número resultado
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, [resultado]
+    mov edx, 4
+    int 0x80
 
-    ; Encerrar o programa
-    mov eax, SYS_EXIT
-    xor ebx, RETURN_VALUE
-    int SYS_CALL
+    ; Exit
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80
