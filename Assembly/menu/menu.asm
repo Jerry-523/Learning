@@ -1,6 +1,6 @@
 section .data
 
-    clear_screen db 27, '[2J', 27, '[H', 0  ; ANSI escape sequence for clearing screen
+    clear_screen db 27, '[2J', 27, '[H', 0  ; ANSI sequence for clearing screen
 
     menu db '###########################', 10
          db '###       [ MENU ]      ###', 10
@@ -17,7 +17,7 @@ section .data
                db '###########################', 10
                db ' => RESULTADO: ', 0
 
-    again_msg db '[1] => Again', 10
+    again_msg db 10, '[1] => Again', 10
               db '[0] => Go to menu', 10
               db ' Choose: ', 0
 
@@ -106,35 +106,36 @@ adicao:
     mov eax, 4         ; syscall: write
     mov ebx, 1         ; file descriptor: stdout
     mov ecx, result_msg      ; pointer to the message
-    mov edx, 92      ; message length
+    mov edx, 99      ; message length
     int 0x80           ; call kernel
-    ;jmp _start
-    ; convert num1 and num2 to floats (assuming decimal input)
-    ; ...
 
-    ; perform addition
-    ; ...
+    ; display result prompt
+    mov eax, 4         ; syscall: write
+    mov ebx, 1         ; file descriptor: stdout
+    mov ecx, again_msg      ; pointer to the message
+    mov edx, 40      ; message length
+    int 0x80           ; call kernel
 
-    ; display result
-    ; ...
+    ; get user choice
+    mov eax, 3         ; syscall: read
+    mov ebx, 0         ; file descriptor: stdin
+    mov ecx, choice    ; buffer to read into
+    mov edx, 2         ; number of bytes to read
+    int 0x80           ; call kernel
 
-    ; display again_msg
-    ; ...
+    ; convert choice to integer
+    mov eax, choice
+    sub eax, '0'
+    sub eax, 1         ; adjust for 0-based index
+    cmp eax, 1
+    jl _start   ; if choice < 1, jump to invalid_choice
 
-    ; get user choice (1 or 0)
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
-
-; (similar code for subtracao, multiplicacao, and divisao)
-
-;invalid_choice:
-    ; display error message for invalid choice
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
+    ; perform corresponding operation
+    cmp eax, 1
+    je adicao
+    cmp eax, 0
+    je _start
+    
 
 subtracao:
     ; display input prompt
@@ -166,32 +167,7 @@ subtracao:
     int 0x80
 
     jmp _start
-    ; convert num1 and num2 to floats (assuming decimal input)
-    ; ...
-
-    ; perform addition
-    ; ...
-
-    ; display result
-    ; ...
-
-    ; display again_msg
-    ; ...
-
-    ; get user choice (1 or 0)
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
-
-; (similar code for subtracao, multiplicacao, and divisao)
-
-;invalid_choice:
-    ; display error message for invalid choice
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
+    
 
 multiplicacao:
     ; display input prompt
@@ -223,32 +199,7 @@ multiplicacao:
     int 0x80
 
     jmp _start
-    ; convert num1 and num2 to floats (assuming decimal input)
-    ; ...
-
-    ; perform addition
-    ; ...
-
-    ; display result
-    ; ...
-
-    ; display again_msg
-    ; ...
-
-    ; get user choice (1 or 0)
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
-
-; (similar code for subtracao, multiplicacao, and divisao)
-
-;invalid_choice:
-    ; display error message for invalid choice
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
+    
 
 divisao:
     ; display input prompt
@@ -280,32 +231,3 @@ divisao:
     int 0x80
 
     jmp _start
-    ; convert num1 and num2 to floats (assuming decimal input)
-    ; ...
-
-    ; perform addition
-    ; ...
-
-    ; display result
-    ; ...
-
-    ; display again_msg
-    ; ...
-
-    ; get user choice (1 or 0)
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
-
-; (similar code for subtracao, multiplicacao, and divisao)
-
-;invalid_choice:
-    ; display error message for invalid choice
-    ; ...
-
-    ; repeat or go to menu based on user choice
-    ; ...
-
-; (rest of the program)
-
