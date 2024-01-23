@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-NOME := verify_even
+NOME := EvenOrOdd
 
 all: $(NOME).o
 	echo $@
