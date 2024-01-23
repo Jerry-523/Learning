@@ -4,7 +4,8 @@ section .data
     result_odd db "IMPAR", 0
 
 section .bss
-    number resq 1
+    number resq 1  ; Aumentei o tamanho do buffer para 10 bytes
+    num_length resd 1  ; Variável para armazenar o tamanho do número
 
 section .text
     global _start
@@ -13,16 +14,21 @@ _start:
     ; Escreve a mensagem de prompt
     mov rdi, 1
     mov rsi, prompt
-    mov rdx, 39 ; Tamanho da mensagem
+    mov rdx, 43 ; Tamanho da mensagem
     mov rax, 1   ; syscall write
     syscall
 
     ; Lê o número
     mov rdi, 0
     mov rsi, number
-    mov rdx, 8    ; Tamanho do buffer
+    mov rdx, 1    ; Tamanho do buffer
     mov rax, 0    ; syscall read
     syscall
+
+    ; Chama a função para obter o tamanho do número
+    mov rdi, number
+    mov rax, 0
+    call getNumeroLength
 
     ; Converte a string para número
     mov rdi, number
@@ -30,12 +36,8 @@ _start:
     call str2int
 
     ; Verifica se é par ou ímpar
-    mov rdi, eax
-    mov rax, 2    ; número par se restante da divisão por 2 é 0
-    xor rdx, rdx
-    div rdx
-    test rdx, rdx
-    jz is_even    ; se restante da divisão é 0, é par
+    test eax, 1   ; testa o bit menos significativo (0 para par, 1 para ímpar)
+    jz is_even   ; se é 0, então é par
 
     ; É ímpar
     mov rdi, 1
@@ -74,4 +76,17 @@ strloop:
     jmp strloop
 strdone:
     mov eax, ebx
+    ret
+
+; Função para obter o tamanho do número
+getNumeroLength:
+    xor rax, rax
+    mov rcx, 0
+getNumLoop:
+    cmp byte [rdi + rcx], 0
+    je  getNumDone
+    inc rcx
+    jmp getNumLoop
+getNumDone:
+    mov [num_length], rcx
     ret
