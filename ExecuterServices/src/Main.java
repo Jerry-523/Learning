@@ -20,7 +20,7 @@ public class Main {
         executorService.submit(task2);
         executorService.submit(task3);
 
-        // Aguardando as tarefas serem executadas
+        // Aguardando
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
