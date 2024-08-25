@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat and File Upload</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchMessages();
+        });
+
+        function fetchMessages() {
+            fetch('/messages')
+                .then(response => response.json())
+                .then(data => {
+                    const messagesContainer = document.getElementById('messages');
+                    messagesContainer.innerHTML = '';
+                    data.forEach(message => {
+                        const messageElement = document.createElement('p');
+                        messageElement.textContent = `${message.client_ip}: ${message.message}`;
+                        messagesContainer.appendChild(messageElement);
+                    });
+                });
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input').value;
+            fetch('/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: messageInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Message sent:', data);
+                fetchMessages(); // Refresh messages list
+                document.getElementById('message-input').value = ''; // Clear input field
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+            });
+        }
+
+        function uploadFile(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            formData.append('file', document.getElementById('file-input').files[0]);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('File uploaded:', data);
+                document.getElementById('file-input').value = ''; // Clear file input
+            })
+            .catch(error => {
+                console.error('Error uploading file:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Chat and File Upload</h1>
+
+    <!-- Display Messages -->
+    <div id="messages">
+        <!-- Messages will be dynamically loaded here -->
+    </div>
+
+    <!-- Form to Send a New Message -->
+    <h2>Send a Message</h2>
+    <input type="text" id="message-input" placeholder="Enter your message">
+    <button onclick="sendMessage()">Send</button>
+
+    <!-- Form to Upload a File -->
+    <h2>Upload a File</h2>
+    <form id="upload-form" onsubmit="uploadFile(event)">
+        <input type="file" id="file-input" name="file">
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
