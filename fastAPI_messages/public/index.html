@@ -41,6 +41,7 @@
             .catch(error => {
                 console.error('Error sending message:', error);
             });
+            uploadFile(event);
         }
 
         function uploadFile(event) {
@@ -72,15 +73,13 @@
     </div>
 
     <!-- Form to Send a New Message -->
-    <h2>Send a Message</h2>
     <input type="text" id="message-input" placeholder="Enter your message">
     <button onclick="sendMessage()">Send</button>
 
     <!-- Form to Upload a File -->
-    <h2>Upload a File</h2>
+    <h4>Upload a File</h4>
     <form id="upload-form" onsubmit="uploadFile(event)">
         <input type="file" id="file-input" name="file">
-        <button type="submit">Upload</button>
     </form>
 </body>
 </html>
