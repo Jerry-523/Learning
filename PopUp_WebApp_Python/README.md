@@ -1,83 +1,113 @@
-Interagindo com a API
-1. Criar um Novo Ticket
 
-Endpoint: POST /tickets/
+---
 
-Payload:
+# Ticket Change Detection API
 
-json
+This FastAPI-based application is designed to detect changes in ticket properties, such as priority, assignee, or status, by comparing the current state of a ticket with its previously stored state.
 
-{
-    "id": 1,
-    "title": "Problema no Login",
-    "description": "Usuário não consegue fazer login no sistema.",
-    "status": "aberto",
-    "created_at": "2024-09-04T12:00:00"
-}
+## Features
 
-Resposta:
+- **Detect Changes:** Compares the current state of a ticket against the previously stored state to detect changes.
+- **Track Ticket Properties:** Monitors properties like `Priority`, `Assignee`, `Status`, and others.
+- **RESTful API:** Provides an easy-to-use API endpoint for checking changes in a specific ticket.
+- **State Persistence:** (Simulated with an in-memory database for demonstration) Maintains the previous state of tickets for accurate change detection.
 
-json
+## Installation
 
-{
-    "id": 1,
-    "title": "Problema no Login",
-    "description": "Usuário não consegue fazer login no sistema.",
-    "status": "aberto",
-    "created_at": "2024-09-04T12:00:00"
-}
+### Prerequisites
 
-Ao criar um ticket, uma notificação será enviada via WebSocket para todos os clientes conectados e armazenada no banco de dados.
-2. Obter Notificações
+- Python 3.8 or higher
+- `pip` (Python package installer)
+- `virtualenv` (optional but recommended for creating a virtual environment)
 
-Endpoint: GET /notifications/
+### Step-by-Step Guide
 
-Resposta:
+1. **Clone the Repository:**
 
-json
+   ```bash
+   git clone https://github.com/your-username/ticket-change-detection.git
+   cd ticket-change-detection
+   ```
 
-[
-    {
-        "id": 1,
-        "message": "Novo ticket criado: Problema no Login",
-        "read": false,
-        "created_at": "2024-09-04T12:00:00"
-    }
-]
+2. **Create a Virtual Environment (Optional but Recommended):**
 
-Frontend para Receber Notificações
+   ```bash
+   python3 -m venv env
+   source env/bin/activate  # On Windows use `env\Scripts\activate`
+   ```
 
-Para receber notificações em tempo real no frontend, você pode utilizar JavaScript para se conectar ao WebSocket.
+3. **Install Dependencies:**
 
-html
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Notificações em Tempo Real</title>
-</head>
-<body>
-    <h1>Notificações</h1>
-    <ul id="notifications"></ul>
+4. **Run the Application:**
 
-    <script>
-        const ws = new WebSocket("ws://localhost:8000/ws");
+   ```bash
+   uvicorn app.main:app --reload
+   ```
 
-        ws.onmessage = function(event) {
-            const notificationsList = document.getElementById("notifications");
-            const newNotification = document.createElement("li");
-            newNotification.textContent = event.data;
-            notificationsList.appendChild(newNotification);
-        };
+5. **Access the API:**
 
-        ws.onopen = function() {
-            console.log("Conectado ao WebSocket para receber notificações.");
-        };
+   The API will be available at `http://127.0.0.1:8000`.
 
-        ws.onclose = function() {
-            console.log("Desconectado do WebSocket.");
-        };
-    </script>
-</body>
-</html>
+## API Endpoints
+
+### 1. Check for Changes in a Ticket
+
+   **Endpoint:** `GET /ticket/{ticket_id}/check_changes`
+
+   **Description:** Checks for any changes in the specified ticket's properties compared to its previously stored state.
+
+   **Parameters:**
+
+   - `ticket_id` (int): The ID of the ticket to check.
+
+   **Response:**
+
+   - `200 OK`: Returns a JSON object with details of the changes detected.
+   - `404 Not Found`: If the ticket does not exist or cannot be retrieved.
+   - `500 Internal Server Error`: If an unexpected error occurs.
+
+   **Example:**
+
+   ```bash
+   curl -X GET "http://127.0.0.1:8000/ticket/12345/check_changes"
+   ```
+
+   **Response Example:**
+
+   ```json
+   {
+     "ticket_id": 12345,
+     "changes": {
+       "priority": {
+         "old": "Low",
+         "new": "High"
+       },
+       "assignee": {
+         "old": "User A",
+         "new": "User B"
+       }
+     }
+   }
+   ```
+
+## Configuration
+
+### Environment Variables
+
+- `RT_API_URL`: Base URL of the Request Tracker API.
+- `RT_USERNAME`: Username for authenticating with the RT API.
+- `RT_PASSWORD`: Password for authenticating with the RT API.
+
+These should be set in your environment or in a `.env` file for the application to function correctly.
+
+## Testing
+
+To run tests use the following command:
+
+```bash
+pytest
 
