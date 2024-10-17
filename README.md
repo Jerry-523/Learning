@@ -1,3 +1,3 @@
 # Learning
 
-Repositorio do meu estudo/treinamento.
+Repositorio de Estudos.
